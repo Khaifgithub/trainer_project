@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define a common Address bean -->
+    <bean id="commonAddress" class="com.qn.spring.quntnex.Address">
+        <property name="teachingId" value="12345"/>
+    </bean>
+
+    <!-- JavaTrainer bean with shared address -->
+    <bean id="javatrainer" class="com.qn.spring.quntnex.JavaTrainer">
+        <constructor-arg name="name" value="khaif"/>
+        <constructor-arg name="subject" value="Java"/>
+        <property name="address" ref="commonAddress"/>
+        
+    </bean>
+
+    <!-- SqlTrainer bean with shared address -->
+    <bean id="sqlTrainer" class="com.qn.spring.quntnex.SqlTrainer">
+        <constructor-arg name="name" value="khaif"/>
+        <constructor-arg name="subject" value="SQL"/>
+        <property name="address" ref="commonAddress"/>
+    </bean>
+
+    <!-- WebTrainer bean with shared address -->
+    <bean id="webTrainer" class="com.qn.spring.quntnex.WebTrainer">
+        <constructor-arg name="name" value="khaif"/>
+        <constructor-arg name="subject" value="Web Development"/>
+        <property name="address" ref="commonAddress"/>
+    </bean>
+
+</beans>
